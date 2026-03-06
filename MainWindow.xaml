@@ -1,0 +1,76 @@
+<Window x:Class="NetPhantom.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewmodels="clr-namespace:NetPhantom.ViewModels"
+        xmlns:views="clr-namespace:NetPhantom.Views"
+        Title="NetPhantom - ARP 扫描与欺骗工具" 
+        Height="800" Width="1200"
+        MinHeight="700" MinWidth="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+
+    <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding MessageQueue}">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding IsDrawerOpen}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel Width="250">
+                    <StackPanel DockPanel.Dock="Top" Margin="16">
+                        <TextBlock Text="NetPhantom" Style="{StaticResource MaterialDesignHeadline5TextBlock}" 
+                                   Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+                        <TextBlock Text="网络安全工具" Style="{StaticResource MaterialDesignCaptionTextBlock}" 
+                                   Opacity="0.68" Margin="0,4,0,0"/>
+                    </StackPanel>
+                    
+                    <ListBox x:Name="NavigationListBox" SelectedIndex="{Binding SelectedIndex}" 
+                             SelectionChanged="NavigationListBox_SelectionChanged">
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" Margin="16,8">
+                                <materialDesign:PackIcon Kind="Radar" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock Text="主机扫描" Margin="16,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" Margin="16,8">
+                                <materialDesign:PackIcon Kind="NetworkOutline" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock Text="ARP 欺骗" Margin="16,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" Margin="16,8">
+                                <materialDesign:PackIcon Kind="Cog" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock Text="设置" Margin="16,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+
+            <DockPanel>
+                <materialDesign:ColorZone Mode="PrimaryMid" Padding="16" DockPanel.Dock="Top"
+                                          materialDesign:ElevationAssist.Elevation="Dp4">
+                    <DockPanel>
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
+                                      IsChecked="{Binding IsDrawerOpen}"
+                                      DockPanel.Dock="Left"/>
+                        <TextBlock Text="{Binding CurrentPageTitle}" 
+                                   VerticalAlignment="Center" 
+                                   Margin="16,0,0,0"
+                                   Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+
+                <ContentControl x:Name="ContentArea" Content="{Binding CurrentView}"/>
+            </DockPanel>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+</Window>

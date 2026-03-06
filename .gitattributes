@@ -1,0 +1,49 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.cs text diff=csharp
+*.xaml text
+*.csproj text
+*.sln text
+*.config text
+*.json text
+*.xml text
+*.md text
+
+# Scripts
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+
+# Documentation
+*.txt text
+*.md text
+LICENSE text
+CHANGELOG text
+
+# Binary files
+*.dll binary
+*.exe binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.7z binary
+*.rar binary
+
+# Archives
+*.zip binary
+*.7z binary
+*.gz binary
+*.tar binary
+*.rar binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary

@@ -1,0 +1,51 @@
+MIT License
+
+Copyright (c) 2026 NetPhantom Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+DISCLAIMER AND LEGAL NOTICE
+
+This software is provided for educational and authorized testing purposes only.
+
+IMPORTANT WARNINGS:
+
+1. LEGAL COMPLIANCE
+   - Use of this software for unauthorized network attacks is ILLEGAL
+   - Users must comply with all applicable local, state, and federal laws
+   - Unauthorized ARP spoofing may violate computer fraud and abuse laws
+
+2. AUTHORIZED USE ONLY
+   - Only use this tool on networks you own or have explicit permission to test
+   - Obtain written authorization before conducting any security testing
+   - Respect privacy and security of others
+
+3. NO WARRANTY
+   - This software is provided "AS IS" without warranty of any kind
+   - The authors are not responsible for any misuse or damage caused
+   - Use at your own risk
+
+4. EDUCATIONAL PURPOSE
+   - This tool is designed for learning network security concepts
+   - Intended for security professionals and researchers
+   - Not intended for malicious purposes
+
+By using this software, you agree to use it responsibly and legally.

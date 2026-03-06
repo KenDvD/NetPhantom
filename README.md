@@ -540,27 +540,6 @@ in the Software without restriction...
 
 ---
 
-## 📞 联系方式
-
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/NetPhantom/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/NetPhantom/discussions)
-
----
-
-## 🔖 版本历史
-
-查看 [CHANGELOG.md](CHANGELOG.md) 了解详细的版本更新历史。
-
-### 最新版本：v1.0.0 (2026-03-06)
-
-- ✨ 主机发现模块
-- 🎭 ARP 欺骗模块
-- 🎨 Material Design UI
-- 📝 完整的文档
-
----
-
 ## ⭐ Star History
 
 如果这个项目对你有帮助，请给我们一个 Star ⭐
@@ -574,4 +553,5 @@ in the Software without restriction...
 [⬆ 回到顶部](#-netphantom)
 
 </div>
+
 

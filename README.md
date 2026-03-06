@@ -2,7 +2,7 @@
 
 # 🌐 NetPhantom
 
-<img src="APPicon.ico" alt="NetPhantom Logo" width="128" height="128">
+<img src="app.ico" alt="NetPhantom Logo" width="128" height="128">
 
 **专业的网络扫描与 ARP 安全测试工具**
 
@@ -574,3 +574,4 @@ in the Software without restriction...
 [⬆ 回到顶部](#-netphantom)
 
 </div>
+

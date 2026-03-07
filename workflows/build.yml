@@ -1,0 +1,68 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build Release
+      run: dotnet build -c Release --no-restore
+    
+    - name: Publish Standard Version
+      run: dotnet publish -c Release -r win-x64 --self-contained false -o ./publish/standard
+    
+    - name: Publish Full Version
+      run: dotnet publish -c Release -r win-x64 --self-contained true -o ./publish/full
+    
+    - name: Copy Documentation
+      run: |
+        Copy-Item README.md ./publish/standard/
+        Copy-Item INSTALL_GUIDE.md ./publish/standard/
+        Copy-Item LICENSE ./publish/standard/
+        Copy-Item install.bat ./publish/standard/
+        Copy-Item RunAsAdmin.bat ./publish/standard/
+        Copy-Item README.md ./publish/full/
+        Copy-Item INSTALL_GUIDE.md ./publish/full/
+        Copy-Item LICENSE ./publish/full/
+        Copy-Item install.bat ./publish/full/
+        Copy-Item RunAsAdmin.bat ./publish/full/
+    
+    - name: Create ZIP packages
+      run: |
+        Compress-Archive -Path ./publish/standard/* -DestinationPath NetPhantom-${{ github.ref_name }}.zip
+        Compress-Archive -Path ./publish/full/* -DestinationPath NetPhantom-${{ github.ref_name }}-full.zip
+    
+    - name: Generate SHA256
+      run: |
+        $hash1 = (Get-FileHash NetPhantom-${{ github.ref_name }}.zip -Algorithm SHA256).Hash
+        $hash2 = (Get-FileHash NetPhantom-${{ github.ref_name }}-full.zip -Algorithm SHA256).Hash
+        "NetPhantom-${{ github.ref_name }}.zip: $hash1" | Out-File -FilePath checksums.txt
+        "NetPhantom-${{ github.ref_name }}-full.zip: $hash2" | Out-File -FilePath checksums.txt -Append
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          NetPhantom-${{ github.ref_name }}.zip
+          NetPhantom-${{ github.ref_name }}-full.zip
+          checksums.txt
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
